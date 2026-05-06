@@ -1,13 +1,12 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "cd frontend && npm install",
   "builds": [
     {
       "src": "frontend/package.json",
       "use": "@vercel/next"
-    },
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -22,5 +21,10 @@
   ],
   "env": {
     "NEXT_PUBLIC_API_URL": "https://algorithm-v2.vercel.app/api"
+  },
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.9"
+    }
   }
 }
